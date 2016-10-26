@@ -38,7 +38,7 @@ extension KituraTest {
     }
 
     func performServerTest(_ router: ServerDelegate,
-                           asyncTasks: @escaping (XCTestExpectation) -> Void...) {
+                           asyncTasks: (XCTestExpectation) -> Void...) {
         Kitura.addHTTPServer(onPort: 8090, with: router)
         Kitura.start()
         sleep(1)

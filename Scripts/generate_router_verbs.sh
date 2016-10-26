@@ -45,7 +45,7 @@ for VERB in `sed '/^$/d' ${INPUT_FILE} | sed '/^#/d'`; do
 VERB_LOW_CASE=`echo $VERB | cut -c1 | tr '[:upper:]' '[:lower:]'``echo $VERB | cut -c2-`
 VERB_UPPER_CASE=`echo $VERB | tr '[:lower:]' '[:upper:]'`
 if [ "${VERB_UPPER_CASE}" == "ALL" ]; then
-  DOC_TEXT_1="any" 
+  DOC_TEXT_1="any"
   DOC_TEXT_2=""
 else
   DOC_TEXT_1="HTTP $VERB_UPPER_CASE"
@@ -63,7 +63,7 @@ cat <<EOF >> ${OUTPUT_FILE}
     /// - Parameter handler: A comma delimited set of \`RouterHandler\`s that will be
     ///                     invoked when $DOC_TEXT_1 request$DOC_TEXT_2 comes to the server.
     @discardableResult
-    public func $VERB_LOW_CASE(_ path: String?=nil, handler: @escaping RouterHandler...) -> Router {
+    public func $VERB_LOW_CASE(_ path: String?=nil, handler: RouterHandler...) -> Router {
         return routingHelper(.$VERB_LOW_CASE, pattern: path, handler: handler)
     }
 
